@@ -1,11 +1,11 @@
 class Movie {
-  contructor(title, genre, countryOfOrigin, starAct, yearOfProduction) {
+  constructor(title, genre, countryOfOrigin, starAct, yearOfProduction) {
     this.title = title;
     this.genre = genre;
     this.countryOfOrigin = countryOfOrigin;
     this.starAct = starAct;
     this.yearOfProduction = yearOfProduction;
-    this.available = null;
+    this.available = true;
   }
 }
 
@@ -14,15 +14,15 @@ class videoClub {
     this.movies = [];
   }
 
-  addFilm(title, genre, countryOfOrigin, starAct, yearOfProduction) {
-    const film = new Film(
+  addMovie(title, genre, countryOfOrigin, starAct, yearOfProduction) {
+    const movie = new Movie(
       title,
       genre,
       countryOfOrigin,
       starAct,
       yearOfProduction
     );
-    this.movies.push(film);
+    this.movies.push(movie);
     console.log(`"${title}" has been added to the store.`);
   }
 
@@ -68,4 +68,33 @@ class videoClub {
   }
 }
 
-const videoClub = new videoClub();
+const myVideoClub = new videoClub();
+
+myVideoClub.addMovie(
+  "Queen of the South",
+  "Action/Thriller",
+  "USA",
+  "Alice Braga",
+  2016
+);
+myVideoClub.addMovie(
+  "Vikings",
+  "Action/War/Historical Drama",
+  "Canada",
+  "Katheryn Winnick",
+  2013
+);
+myVideoClub.addMovie(
+  "How to get away with murder",
+  "Drama",
+  "USA",
+  "Viola Davis",
+  2020
+);
+
+myVideoClub.rentMovie("How to get away with murder");
+myVideoClub.rentMovie("Vikings");
+myVideoClub.returnMovie("Vikings");
+
+myVideoClub.checkAvailability("Osuofia");
+myVideoClub.checkAvailability("Queen of the South");
